@@ -3,13 +3,8 @@ petulant-octo-bear
 
 A personal programming challenge.
 
-This program will help the following to happen:
-
-Detect when a new picture is added to a specific folder
-
-Automatically post the picture to a blog
-
-Automatically Tweet that a new post has been posted on the blog
+This program will display the Nth prime number, which is specified by the user.
+Since this uses a brute-force method for calculating prime numbers, large values of N will have longer loading times.
 
 Dependencies
 ============
