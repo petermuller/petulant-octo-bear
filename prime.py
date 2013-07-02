@@ -40,7 +40,7 @@ class Prime:
             i += 2
         return
     
-    def getNthPrime(self,n)
+    def getNthPrime(self,n):
         """
         Returns the Nth prime number. If it wasn't already calculated, the
             method calls the primeGen method to calculate it.
@@ -51,5 +51,5 @@ class Prime:
             
         @return number - the Nth prime number
         """
-        primeGen(n) #if n < len(self.primesList): return
+        self.primeGen(n) #if n < len(self.primesList): return
         return self.primesList[n-1]

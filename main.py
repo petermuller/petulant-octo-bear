@@ -5,11 +5,24 @@ Includes the main program flow for the petulant-octo-bear program.
 
 @author Peter Muller (pmm5983@rit.edu)
 """
-    
+
+import interface
+import prime
+import sys
+import Tkinter
+
 def main():
-    p = Prime()
-    #TODO - add code for gui
-    #TODO - add code for cli
+    p = prime.Prime()
+    if len(sys.argv) == 1:
+        root = Tkinter.Tk()
+        iface = interface.GUIInterface(p,root)
+        root.mainloop()
+    elif sys.argv[1] == "-c":
+        iface = interface.CLIInterface(p)
+        iface.prompt()
+    else:
+        print "Usage: python main.py [-c]"
+    exit(0)
     
 if __name__ == "__main__":
     main()
