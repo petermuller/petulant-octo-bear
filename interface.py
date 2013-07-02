@@ -2,6 +2,8 @@
 interface.py
 
 Classes for interacting with the prime number generator.
+
+@author Peter Muller (pmm5983@rit.edu)
 """
 
 import Tkinter
@@ -20,11 +22,14 @@ class CLIInterface:
         """
         run = True
         while (run):
-            number = int(input("Enter a value of N to find the Nth prime number: "))
-            result = self.prime.getNthPrime(number)
-            print(str(result))
+            try:
+                number = int(input("Enter a value of N to find the Nth prime number: "))
+                result = self.prime.getNthPrime(number)
+                print(str(result))
+            except:
+                print("Error, please enter a positive integer.")
             print
-            again = str(input("Type 'e' to exit, or press Enter to try again."))
+            again = raw_input("Type 'e' to exit, or press Enter to try again. ").strip()
             if again == 'e':
                 run = False
             print

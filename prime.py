@@ -2,6 +2,8 @@
 prime.py
 
 The main class for collecting and generating prime number information
+
+@author Peter Muller (pmm5983@rit.edu)
 """
 
 class Prime:

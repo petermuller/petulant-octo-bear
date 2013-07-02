@@ -22,7 +22,7 @@ def main():
         iface.prompt()
     else:
         print "Usage: python main.py [-c]"
-    exit(0)
+    exit()
     
 if __name__ == "__main__":
     main()
