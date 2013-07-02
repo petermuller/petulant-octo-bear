@@ -43,17 +43,17 @@ class GUIInterface:
         self.prime = prime
         master.title("Petulant-Octo-Bear")
         master.minsize(100,100)
-        self.instructions = Tkinter.Text(master,height=1)
-        self.instructions.insert(Tkinter.INSERT, "Enter a number N for the Nth prime number")
-        self.instructions.pack(fill='x')
         self.input = Tkinter.Entry(master)
+        self.input.insert(Tkinter.INSERT, "Enter a number N for the Nth prime number")
         self.input.pack(fill='x')
-        self.submit = Tkinter.Button(master,text="Submit",command=self.submit)
-        self.submit.pack()
-        self.ex = Tkinter.Button(master,text="Exit",command=self.quit)
-        self.ex.pack()
+        self.f = Tkinter.Frame(master)
+        self.f.pack()
+        self.submit = Tkinter.Button(self.f,text="Submit",command=self.submit)
+        self.submit.pack(side=Tkinter.LEFT)
+        self.ex = Tkinter.Button(self.f,text="Exit",command=self.quit)
+        self.ex.pack(side=Tkinter.LEFT)
         self.answer = Tkinter.Text(master,height=1)
-        self.answer.pack()
+        self.answer.pack(fill='x')
         self.master = master
         
     def submit(self):
