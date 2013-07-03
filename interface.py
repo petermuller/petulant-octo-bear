@@ -16,6 +16,7 @@ class CLIInterface:
     def __init__(self,prime):
         self.prime = prime
         
+    #TODO reimplement as state machine to get rid of nested while loops
     def prompt(self):
         """
         Main program flow for the CLI
@@ -23,13 +24,15 @@ class CLIInterface:
         run = True
         while (run):
             try:
-                number = int(input("Enter a value of N to find the Nth prime number: "))
+                number = int(input("Enter a value of N to find the Nth prime" +
+                    \ "number: "))
                 result = self.prime.getNthPrime(number)
                 print(str(result))
             except:
                 print("Error, please enter a positive integer.")
             print
-            again = raw_input("Type 'e' to exit, or press Enter to try again. ").strip()
+            again = raw_input("Type 'e' to exit, or press Enter to try " + 
+                \ "again. ").strip()
             if again == 'e':
                 run = False
             print
@@ -40,6 +43,8 @@ class GUIInterface:
     """
     
     def __init__(self,prime,master=None):
+        #TODO cleanup, if possible?
+        #TODO make windows more user-friendly.
         self.prime = prime
         master.title("Petulant-Octo-Bear")
         master.minsize(100,100)
