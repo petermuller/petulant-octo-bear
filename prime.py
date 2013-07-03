@@ -55,3 +55,20 @@ class Prime:
         """
         self.primeGen(n) #if n < len(self.primesList): return
         return self.primesList[n-1]
+        
+    def isPrime(self,number):
+        """
+        Checks whether or not a number is prime.
+        Will generate 100 prime numbers at a time until the number under test
+            is less than or equal to numbers in the list of prime numbers.
+        
+        @param number - the number under test
+        
+        @return Boolean determining primeness of number.
+        """
+        lengthOfList = len(self.primesList)
+        #Check to see if more numbers need to be generated
+        while number > self.primesList[-1]:
+            lengthOfList += 100
+            self.primeGen(lengthOfList)
+        return number in self.primesList
