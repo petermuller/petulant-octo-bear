@@ -24,15 +24,15 @@ class CLIInterface:
         run = True
         while (run):
             try:
-                number = int(input("Enter a value of N to find the Nth prime" +
-                    \ "number: "))
+                number = int(input("Enter a value of N to find the Nth prime"+\
+                    " number: "))
                 result = self.prime.getNthPrime(number)
                 print(str(result))
             except:
                 print("Error, please enter a positive integer.")
             print
-            again = raw_input("Type 'e' to exit, or press Enter to try " + 
-                \ "again. ").strip()
+            again = raw_input("Type 'e' to exit, or press Enter to try " + \
+                "again. ").strip()
             if again == 'e':
                 run = False
             print
