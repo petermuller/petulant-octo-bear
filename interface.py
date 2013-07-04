@@ -55,20 +55,24 @@ class GUIInterface:
         self.finputs = Tkinter.Frame(master)
         self.finputs.pack()
         self.input1 = Tkinter.Entry(self.finputs,width=40)
-        self.input1.insert(Tkinter.INSERT, "Enter a number N for the Nth prime number")
+        self.input1.insert(Tkinter.INSERT, "Enter a number N for the Nth "+\
+            "prime number")
         self.input2 = Tkinter.Entry(self.finputs,width=40)
-        self.input2.insert(Tkinter.INSERT, "Enter a number to check its primeness")
+        self.input2.insert(Tkinter.INSERT, "Enter a number to check its "+\
+            "primeness")
         self.input1.pack(side=Tkinter.LEFT)
         self.input2.pack(side=Tkinter.LEFT)
         
         #Buttons
         self.fbuttons = Tkinter.Frame(master)
         self.fbuttons.pack()
-        self.submit1 = Tkinter.Button(self.fbuttons,text="Find Nth Prime",command=self.submit1)
+        self.submit1 = Tkinter.Button(self.fbuttons,text="Find Nth Prime",\
+            command=self.submit1)
         self.submit1.pack(side=Tkinter.LEFT)
         self.ex = Tkinter.Button(self.fbuttons,text="Exit",command=self.quit)
         self.ex.pack(side=Tkinter.LEFT)
-        self.submit2 = Tkinter.Button(self.fbuttons,text="Check Primeness",command=self.submit2)
+        self.submit2 = Tkinter.Button(self.fbuttons,text="Check Primeness",\
+            command=self.submit2)
         self.submit2.pack(side=Tkinter.LEFT)
         
         #Results
@@ -90,9 +94,11 @@ class GUIInterface:
             number = int(self.input1.get().strip())
             if number < 1:
                 raise
-            self.answer1.insert(Tkinter.INSERT,str(self.prime.getNthPrime(number)))
+            self.answer1.insert(Tkinter.INSERT,\
+                str(self.prime.getNthPrime(number)))
         except:
-            self.answer1.insert(Tkinter.INSERT,"Error, please enter a positive integer.")
+            self.answer1.insert(Tkinter.INSERT,"Error, please enter a"+\
+                " positive integer.")
     
     def submit2(self):
         """
@@ -102,11 +108,14 @@ class GUIInterface:
         try:
             number = int(self.input2.get().strip())
             if self.prime.isPrime(number):
-                self.answer2.insert(Tkinter.INSERT,str(number)+" is a prime number!")
+                self.answer2.insert(Tkinter.INSERT,str(number)+" is a prime" +\
+                    " number!")
             else:
-                self.answer2.insert(Tkinter.INSERT,str(number)+" is not a prime number!")
+                self.answer2.insert(Tkinter.INSERT,str(number)+" is not a "+\
+                    "prime number!")
         except:
-            self.answer2.insert(Tkinter.INSERT,"Error, please enter a positive integer.")
+            self.answer2.insert(Tkinter.INSERT,"Error, please enter a "+\
+                "positive integer.")
                 
                 
     def quit(self):
