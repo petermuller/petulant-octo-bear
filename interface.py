@@ -13,30 +13,63 @@ class CLIInterface:
     Command line wrapper class for interaction with the prime number generator.
     """
     
-    def __init__(self,prime):
+    def __init__(self,prime,currentState="init",nextState=None):
         self.prime = prime
+        self.currentState = currentState
+        self.nextState = nextState
         
-    #TODO reimplement as state machine to get rid of nested while loops
     def prompt(self):
         """
         Main program flow for the CLI
+        States are strings that dictate the program flow.
         """
         run = True
         while (run):
-            try:
-                number = int(input("Enter a value of N to find the Nth prime"+\
-                    " number: "))
-                result = self.prime.getNthPrime(number)
-                print(str(result))
-            except:
-                print("Error, please enter a positive integer.")
-            print
-            again = raw_input("Type 'e' to exit, or press Enter to try " + \
-                "again. ").strip()
-            if again == 'e':
+            if self.currentState == "init":
+                print "Please enter 'N' to enter Nth Number Mode, 'P' to check"
+                print "if a number is prime, or 'E' to exit"
+                choice = raw_input().strip()
+                if (choice == "N" or choice =="n"):
+                    self.nextState = "nth"
+                elif (choice == "P" or choice == "p"):
+                    self.nextState = "pcheck"
+                elif (choice == "E" or choice == "e"):
+                    self.nextState = None
+                else:
+                    print "Error, invalid input."
+                    self.nextState = "init"
+                print
+            elif self.currentState == "nth": #Nth prime number
+                try:
+                    number = int(input("Enter a value of N to find the Nth "+\
+                        "prime number: "))
+                    if number < 1:
+                        raise
+                    result = self.prime.getNthPrime(number)
+                    print(str(result))
+                    self.nextState = "init"
+                except:
+                    print "Error, please enter a positive integer."
+                    self.nextState = "nth"
+                print
+            elif self.currentState == "pcheck": #Primeness checker
+                try:
+                    number = int(input("Enter a number to check its "+\
+                        "primeness: "))
+                    if self.prime.isPrime(number):
+                        print str(number) + " is a prime number!"
+                    else:
+                        print str(number) + " is not a prime number!"
+                    self.nextState = "init"
+                except:
+                    print "Error, please enter a positive integer."
+                    self.nextState = "pcheck"
+                print
+            else: #If exit or invalid state, then exit
                 run = False
-            print
-    
+            #If any state was entered, it will change state here
+            self.currentState = self.nextState
+
 class GUIInterface:
     """
     Graphical wrapper class for interaction with the prime number generator.
