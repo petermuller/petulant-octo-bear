@@ -1,5 +1,5 @@
-petulant-octo-bear
-==================
+python-prime-gen
+================
 
 A personal programming challenge.
 
