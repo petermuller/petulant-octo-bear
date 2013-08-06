@@ -81,7 +81,7 @@ class GUIInterface:
         
         #main window initialization
         self.prime = prime
-        master.title("Petulant-Octo-Bear")
+        master.title("Python-Prime-Gen")
         master.minsize(100,100)
         
         #Inputs
