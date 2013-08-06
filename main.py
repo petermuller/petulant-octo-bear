@@ -1,7 +1,7 @@
 """
 main.py
 
-Includes the main program flow for the petulant-octo-bear program.
+Includes the main program flow for the python-prime-gen program.
 
 @author Peter Muller (pmm5983@rit.edu)
 """
